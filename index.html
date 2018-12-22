@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue JS example for Blog Script</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+
+</head>
+
+
+
+<body>
+        <section id="demo" class="hero">
+
+                <div class="hero-body">
+                
+                <div class="container">
+                
+        
+                
+                                <h1 class="subtitle is-4 has-text-centered has-text-weight-bold">DEMO With VueJS</h1>
+                                <h1 class="subtitle is-3 has-text-centered has-text-weight-bold">Latest Blog Posts</h1>
+                                <br>
+                                <div id="blog">
+                                        <input v-model="api_key" id="api_key" name="api_key" type="text" value="4aeacb81-66e0-4154-ba77-a1043612c563" hidden>
+                                
+                                        <div class="container">
+                                
+                                <div class="columns is-centered">
+                                
+                                <div class="column is-half">
+                                
+                                <div v-cloak v-for="a in json">
+                                
+                                    <a v-bind:id="a.slug" class="title is-4" @click="a.slug = !a.slug">{{a.title}}</a>
+                                    <br>
+                                    <p class="subtitle is-6">{{a.date}}</p>
+                                    <p v-show="a.slug">{{a.content | truncate(140, '...')}} <a @click="a.slug = !a.slug">Read More</a></p>
+                                
+                                    <div v-show="!a.slug" class="content">
+                                <span v-html="a.content">
+                                    </span>
+                                    <br>
+                                    <p><a v-bind:href="a.url">Shareable Link</a></p>
+                                    <a @click="a.slug = !a.slug">Close article</a>
+                                    </div>
+                               
+                                    <hr>
+                                
+                                </div>
+                                
+                                </div>
+                                
+                                </div>
+                                
+        
+                                      
+                
+                        </div>
+                
+                    </div>
+                    <br>
+                    <p class="help has-text-centered">The blog posts are being loaded dynamically from our servers and rendered using VueJS in the frontend. <br> This page is 100% backend/server independent.</p>
+        
+                
+                
+                </div>
+                
+                
+                </div>
+                
+                </section>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.21/vue.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+
+    </script>
+</body>
+</html>
